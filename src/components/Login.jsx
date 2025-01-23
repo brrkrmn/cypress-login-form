@@ -92,17 +92,19 @@ const Login = () => {
           id="exampleEmail"
           name="email"
           placeholder="Enter your email"
+          data-testid="email-input"
           type="email"
           onChange={handleChange}
           value={form.email}
           invalid={errors.email}
         />
-        {errors.email && <FormFeedback>{errorMessages.email}</FormFeedback>}
-      </FormGroup>
+    {errors.email && <FormFeedback data-testid="email-error">{errorMessages.email}</FormFeedback>}
+    </FormGroup>
       <FormGroup>
         <Label for="examplePassword">Password</Label>
         <Input
           id="examplePassword"
+          data-testid="password-input"
           name="password"
           placeholder="Enter your password "
           type="password"
@@ -111,7 +113,7 @@ const Login = () => {
           invalid={errors.password}
         />
         {errors.password && (
-          <FormFeedback>{errorMessages.password}</FormFeedback>
+          <FormFeedback data-testid="password-error">{errorMessages.password}</FormFeedback>
         )}
       </FormGroup>
       <FormGroup check>
@@ -122,14 +124,18 @@ const Login = () => {
           type="checkbox"
           onChange={handleChange}
           invalid={errors.terms}
+          data-testid="terms-checkbox"
         />{' '}
         <Label htmlFor="terms" check>
           I agree to terms of service and privacy policy
         </Label>
-        {errors.terms && <FormFeedback></FormFeedback>}
       </FormGroup>
       <FormGroup className="text-center p-4">
-        <Button color="primary" disabled={!isValid}>
+        <Button
+          data-testid="submit-button"
+          color="primary"
+          disabled={!isValid}
+        >
           Sign In
         </Button>
       </FormGroup>
