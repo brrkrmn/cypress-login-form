@@ -1,6 +1,6 @@
 const Success = () => {
   return (
-    <div>Login successful</div>
+    <div data-testid="success-text">Login successful</div>
   )
 }
 
